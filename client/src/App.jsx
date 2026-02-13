@@ -1,9 +1,22 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import Navbar from "./components/Navbar";
+
 function App() {
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center">
-      <h1 className="text-5xl font-bold text-blue-500">
-        Tailwind is Working 🚀
-      </h1>
+    <div className="min-h-screen bg-black text-white">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
     </div>
   );
 }
