@@ -1,3 +1,4 @@
+const projectRoutes = require("./routes/projectRoutes");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -8,6 +9,8 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/projects", projectRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
