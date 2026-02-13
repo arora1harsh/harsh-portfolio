@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,5 +20,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
