@@ -2,6 +2,7 @@ const projectRoutes = require("./routes/projectRoutes");
 const express = require("express");
 const mongoose = require("mongoose");
 const adminRoutes = require("./routes/adminRoutes");
+const contactRoutes = require("./routes/contactRoutes");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 
 app.use("/api/projects", projectRoutes);
 app.use("/api/admin", adminRoutes);
+app.use("/api/contact", contactRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
