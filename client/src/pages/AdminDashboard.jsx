@@ -1,10 +1,37 @@
-import { useState } from "react";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 function AdminDashboard() {
+  const [projects, setProjects] = useState([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tech, setTech] = useState("");
+
+  const fetchProjects = async () => {
+    const res = await axios.get("http://localhost:5000/api/projects");
+    setProjects(res.data);
+  };
+
+  useEffect(() => {
+    fetchProjects();
+  }, []);
+
+	const handleDelete = async (id) => {
+		try {
+			await axios.delete(
+				`http://localhost:5000/api/projects/${id}`,
+				{
+					headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+					},
+				}
+			);
+
+			fetchProjects();
+		} catch (error) {
+			alert("Delete failed");
+		}
+	};
 
   const handleAddProject = async (e) => {
     e.preventDefault();
@@ -37,11 +64,19 @@ function AdminDashboard() {
   };
 
   return (
-    <section className="px-8 py-20 max-w-3xl mx-auto">
+    <section className="relative px-8 py-20 max-w-3xl mx-auto">
       <h2 className="text-4xl font-bold mb-12 text-center">
         Admin <span className="text-blue-500">Dashboard</span>
       </h2>
-
+			<button
+				onClick={() => {
+					localStorage.removeItem("token");
+					window.location.replace = "/admin";
+				}}
+				className="absolute top-6 right-6 bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg text-white"
+			>
+				Logout
+			</button>
       <form
         onSubmit={handleAddProject}
         className="space-y-6 bg-white/5 border border-gray-800 rounded-xl p-8"
@@ -76,6 +111,24 @@ function AdminDashboard() {
           Add Project
         </button>
       </form>
+			<div className="mt-12 space-y-4">
+				{projects.map((project) => (
+					<div
+						key={project._id}
+						className="flex justify-between items-center bg-white/5 border border-gray-800 p-4 rounded-lg"
+					>
+						<span>{project.title}</span>
+
+						<button
+							onClick={() => handleDelete(project._id)}
+							className="text-red-500 hover:text-red-400"
+						>
+							Delete
+						</button>
+					</div>
+				))}
+			</div>
+
     </section>
   );
 }
