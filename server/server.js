@@ -1,6 +1,7 @@
 const projectRoutes = require("./routes/projectRoutes");
 const express = require("express");
 const mongoose = require("mongoose");
+const adminRoutes = require("./routes/adminRoutes");
 const cors = require("cors");
 require("dotenv").config();
 
@@ -11,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api/projects", projectRoutes);
+app.use("/api/admin", adminRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
