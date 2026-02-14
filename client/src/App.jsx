@@ -6,6 +6,8 @@ import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import AdminLogin from "./pages/AdminLogin";
+import AdminDashboard from "./pages/AdminDashboard";
 
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white">
       <Navbar />
       <Routes>
+        <Route path="/admin" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
