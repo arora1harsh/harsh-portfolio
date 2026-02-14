@@ -6,6 +6,8 @@ function AdminDashboard() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [tech, setTech] = useState("");
+  const [github, setGithub] = useState("");
+  const [live, setLive] = useState("");
 
   const fetchProjects = async () => {
     const res = await axios.get("https://harsh-portfolio-flpe.onrender.com/api/projects");
@@ -103,6 +105,21 @@ function AdminDashboard() {
           value={tech}
           onChange={(e) => setTech(e.target.value)}
         />
+        <input
+          type="text"
+          placeholder="github link"
+          className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3"
+          value={github}
+          onChange={(e) => setGithub(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="live demo link"
+          className="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3"
+          value={live}
+          onChange={(e) => setLive(e.target.value)}
+        />
+
 
         <button
           type="submit"

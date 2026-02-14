@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 
 function Projects() {
@@ -22,21 +23,28 @@ function Projects() {
   }, []);
 
   return (
-    <section className="px-8 py-16 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold mb-12 text-center">
-        My <span className="text-blue-500">Projects</span>
-      </h2>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <section className="px-8 py-16 max-w-6xl mx-auto">
+        <h2 className="text-4xl font-bold mb-12 text-center">
+          My <span className="text-blue-500">Projects</span>
+        </h2>
 
-      {loading ? (
-        <p className="text-center text-gray-400">Loading projects...</p>
-      ) : (
-        <div className="grid md:grid-cols-2 gap-10">
-          {projects.map((project) => (
-            <ProjectCard key={project._id} {...project} />
-          ))}
-        </div>
-      )}
-    </section>
+        {loading ? (
+          <p className="text-center text-gray-400">Loading projects...</p>
+        ) : (
+          <div className="grid md:grid-cols-2 gap-10">
+            {projects.map((project) => (
+              <ProjectCard key={project._id} {...project} />
+            ))}
+          </div>
+        )}
+      </section>
+    </motion.div>
   );
 }
 

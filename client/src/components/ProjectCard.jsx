@@ -21,6 +21,7 @@ function ProjectCard({ title, description, tech, github, live }) {
         <a
           href={github}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-blue-500 hover:underline"
         >
           GitHub
@@ -29,6 +30,7 @@ function ProjectCard({ title, description, tech, github, live }) {
         <a
           href={live}
           target="_blank"
+          rel="noopener noreferrer"
           className="text-blue-500 hover:underline"
         >
           Live Demo
