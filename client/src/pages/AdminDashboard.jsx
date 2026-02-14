@@ -8,7 +8,7 @@ function AdminDashboard() {
   const [tech, setTech] = useState("");
 
   const fetchProjects = async () => {
-    const res = await axios.get("http://localhost:5000/api/projects");
+    const res = await axios.get("https://harsh-portfolio-flpe.onrender.com/api/projects");
     setProjects(res.data);
   };
 
@@ -19,7 +19,7 @@ function AdminDashboard() {
 	const handleDelete = async (id) => {
 		try {
 			await axios.delete(
-				`http://localhost:5000/api/projects/${id}`,
+				`https://harsh-portfolio-flpe.onrender.com/api/projects/${id}`,
 				{
 					headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -38,7 +38,7 @@ function AdminDashboard() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/projects",
+        "https://harsh-portfolio-flpe.onrender.com/api/projects",
         {
           title,
           description,
