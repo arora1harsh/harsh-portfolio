@@ -35,7 +35,7 @@ function Projects() {
         </h2>
 
         {loading ? (
-          <p className="text-center text-gray-400">Loading projects...</p>
+          <p className="text-center text-gray-600 dark:text-gray-400">Loading projects...</p>
         ) : (
           <div className="grid md:grid-cols-2 gap-10">
             {projects.map((project) => (

@@ -21,11 +21,11 @@ function Home() {
           </h1>
 
 
-          <h2 className="text-2xl md:text-3xl text-gray-400 mb-6">
+          <h2 className="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-6">
             Full Stack Developer | Problem Solver
           </h2>
 
-          <p className="text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">
             I build scalable, high-performance web applications using modern 
             technologies like React, Node.js, and MongoDB.
           </p>
@@ -34,7 +34,7 @@ function Home() {
           <div className="flex justify-center gap-6">
             <Link
               to="/projects"
-              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-lg shadow-blue-500/30"
+              className="text-white bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition duration-300 shadow-lg shadow-blue-500/30"
             >
               View Projects
             </Link>

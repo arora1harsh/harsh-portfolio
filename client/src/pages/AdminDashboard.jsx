@@ -45,8 +45,8 @@ function AdminDashboard() {
           title,
           description,
           tech: tech.split(","),
-          github: "#",
-          live: "#",
+          github,
+          live,
         },
         {
           headers: {
@@ -81,7 +81,7 @@ function AdminDashboard() {
 			</button>
       <form
         onSubmit={handleAddProject}
-        className="space-y-6 bg-white/5 border border-gray-800 rounded-xl p-8"
+        className="space-y-6 bg-gray-100 dark:bg-white/5 border border-gray-800 rounded-xl p-8"
       >
         <input
           type="text"
@@ -132,7 +132,7 @@ function AdminDashboard() {
 				{projects.map((project) => (
 					<div
 						key={project._id}
-						className="flex justify-between items-center bg-white/5 border border-gray-800 p-4 rounded-lg"
+						className="flex justify-between items-center bg-gray-100 dark:bg-white/5 border border-gray-800 p-4 rounded-lg"
 					>
 						<span>{project.title}</span>
 

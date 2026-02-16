@@ -1,5 +1,20 @@
 import profile from "../assets/profile.jpg";
 import { motion } from "framer-motion";
+import {
+  FaReact,
+  FaNodeJs,
+  FaGitAlt
+} from "react-icons/fa";
+
+import {
+  SiJavascript,
+  SiMongodb,
+  SiExpress,
+  SiTailwindcss
+} from "react-icons/si";
+
+import { BsDatabase } from "react-icons/bs";
+
 
 function About() {
   return (
@@ -40,10 +55,10 @@ function About() {
 
             </div>
 
-            <div className="bg-white/5 border border-gray-800 rounded-2xl p-8 backdrop-blur-md">
+            <div className="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-gray-800 rounded-2xl p-8 backdrop-blur-md">
               <h3 className="text-2xl font-semibold mb-6">Quick Info</h3>
 
-              <ul className="space-y-4 text-gray-400">
+              <ul className="space-y-4 text-gray-600 dark:text-gray-400">
                 <li>🎓 Engineering Student</li>
                 <li>💻 Full Stack Developer</li>
                 <li>🚀 React | Node | MongoDB</li>
@@ -54,7 +69,7 @@ function About() {
           </div>
 
           {/* RIGHT SIDE - ABOUT TEXT */}
-          <div className="space-y-6 text-gray-400 leading-relaxed">
+          <div className="space-y-6 text-gray-600 dark:text-gray-400 leading-relaxed">
             <p>
               I'm Harsh Arora, a passionate full stack developer focused on
               building scalable and user-friendly web applications.
@@ -69,6 +84,15 @@ function About() {
               Currently exploring advanced backend systems, system design,
               and cloud deployment.
             </p>
+            <a
+              href="/Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white inline-block mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg font-semibold transition"
+            >
+              Download CV
+            </a>
+
           </div>
 
         </div>
@@ -79,29 +103,36 @@ function About() {
             My <span className="text-blue-500">Skills</span>
           </h3>
 
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+
             {[
-              "React",
-              "JavaScript",
-              "Node.js",
-              "MongoDB",
-              "Express",
-              "Tailwind CSS",
-              "Git",
-              "REST APIs",
+              { name: "React", icon: <FaReact /> },
+              { name: "JavaScript", icon: <SiJavascript className="text-yellow-400" /> },
+              { name: "Node.js", icon: <FaNodeJs className="text-green-500" /> },
+              { name: "MongoDB", icon: <SiMongodb className="text-green-600" /> },
+              { name: "Express", icon: <SiExpress /> },
+              { name: "Tailwind CSS", icon: <SiTailwindcss className="text-cyan-400" /> },
+              { name: "Git", icon: <FaGitAlt className="text-orange-500" /> },
+              { name: "REST APIs", icon: <BsDatabase className="text-purple-400" /> },
             ].map((skill, index) => (
-              <div
+              <motion.div
                 key={index}
-                className="bg-white/5 border border-gray-800 rounded-lg py-4 hover:bg-blue-500/10 hover:border-blue-500 transition"
+                whileHover={{ scale: 1.08 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                className="bg-gray-100 dark:bg-white/5 border border-gray-300 dark:border-gray-800 rounded-xl p-6 flex flex-col items-center gap-4 hover:border-blue-500 hover:shadow-lg hover:shadow-blue-500/20 transition duration-300"
               >
-                {skill}
-              </div>
+                <div className="text-4xl">
+                  {skill.icon}
+                </div>
+
+                <span className="text-gray-600 dark:text-gray-400font-medium">
+                  {skill.name}
+                </span>
+              </motion.div>
             ))}
-          </motion.div>
+
+          </div>
+
         </div>
 
       </motion.section>
