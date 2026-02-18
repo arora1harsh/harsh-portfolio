@@ -34,28 +34,31 @@ function App() {
 
   const location = useLocation();
   return (
-    <div className="min-h-screen bg-white text-black dark:text-white dark:bg-gradient-to-br from-black via-gray-900 to-black">
+    <div className="min-h-screen w-full overflow-x-hidden">
 
-      <Navbar theme={theme} setTheme={setTheme} />
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/admin" element={<AdminLogin />} />
-          <Route
-            path="/admin/dashboard"
-            element={
-              <ProtectedRoute>
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </AnimatePresence>
-      <Footer />
+      <div className="min-h-screen bg-white text-black dark:text-white dark:bg-gradient-to-br from-black via-gray-900 to-black">
+
+        <Navbar theme={theme} setTheme={setTheme} />
+        <AnimatePresence mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route path="/admin" element={<AdminLogin />} />
+            <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute>
+                  <AdminDashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </AnimatePresence>
+        <Footer />
+      </div>
     </div>
   );
 }
